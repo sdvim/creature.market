@@ -558,6 +558,44 @@ class SliderComponent extends HTMLElement {
 
 customElements.define('slider-component', SliderComponent);
 
+class EthereumToggle extends HTMLElement {
+  constructor() {
+    super();
+    this.addEventListener('click', this.onToggle);
+
+    this.currentTimestamp = Math.floor(new Date().getTime()/1000);
+    this.ethTimestamp = parseInt(localStorage.getItem('ethusd_timestamp'));
+    this.ethPrice = parseInt(localStorage.getItem('ethusd'));
+    this.useEth = localStorage.getItem('useEth') === 'true';
+
+    if (!this.ethTimestamp || this.currentTimestamp >= this.ethTimestamp) {
+      fetch('//api.etherscan.io/api?module=stats&action=ethprice&apikey=QBJGX3IRVMDS3D9P6ZEHMJGMFJ57GWAWEP')
+        .then(response => response.json())
+        .then(data => {
+          const { ethusd, ethusd_timestamp } = data.result;
+          localStorage.setItem('ethusd', ethusd);
+          localStorage.setItem('ethusd_timestamp', ethusd_timestamp + 3600);
+          this.ethPrice = ethusd;
+          this.setEthPrice();
+        });
+    }
+
+    if (this.ethPrice) this.setEthPrice();
+  }
+
+  setEthPrice() {
+    this.querySelector('span span').innerHTML = `${this.ethPrice}`;
+  }
+
+  onToggle() {
+    this.useEth = !this.useEth;
+    localStorage.setItem('useEth', this.useEth);
+    console.log(this.useEth);
+  }
+}
+
+customElements.define('ethereum-toggle', EthereumToggle);
+
 class VariantSelects extends HTMLElement {
   constructor() {
     super();
