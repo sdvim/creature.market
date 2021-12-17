@@ -11,7 +11,7 @@
   padding: 1.5rem;
   border: 3px solid;
   border-radius: 1.5rem;
-  background: white;
+  background: rgb(var(--color-base-background-2));
   height: 100%;
 }
 
