@@ -1,0 +1,47 @@
+ethereum-toggle {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+ethereum-toggle[data-timestamp]::before {
+  white-space: pre;
+  content : attr(data-timestamp);
+  margin-top: 10rem;
+  display: inline-block;
+  background: rgb(var(--color-foreground));
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  color: rgb(var(--color-base-background-2));
+  text-align: center;
+}
+
+ethereum-toggle[data-timestamp]::after {
+  content: '';
+  border-bottom: 1em solid;
+  border-left: 1em solid transparent;
+  border-right: 1em solid transparent;
+  color: rgb(var(--color-foreground));
+  font-size: 8px;
+  width: 0;
+  height: 0;
+  margin-top: 4.75rem;
+}
+
+ethereum-toggle[data-timestamp]::before,
+ethereum-toggle[data-timestamp]::after {
+  position : absolute;
+  opacity: 0;
+  transform: translateY(-0.5rem);
+  transform-origin: top;
+  transition: opacity var(--duration-short) ease,
+    transform var(--duration-short) ease;
+}
+
+ethereum-toggle[data-timestamp]:hover::before,
+ethereum-toggle[data-timestamp]:hover::after {
+  opacity: 1;
+  transform: translateY(0%) scale(1);
+}
