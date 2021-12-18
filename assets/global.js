@@ -579,6 +579,9 @@ class EthereumToggle extends HTMLElement {
 
   setText() {
     this.innerHTML = this.useEth ? 'ETH / USD' : 'USD / ETH';
+    document.querySelectorAll('.eth-only').forEach((el) => {
+      el.style.display = this.useEth ? '' : 'none';
+    });
 
     if (this.ethPrice) {
       document.querySelectorAll('.price-item, .cart-item__details > .product-option, .cart-item .price, .cart__footer .totals__subtotal-value, .order-summary .summary__emphasis').forEach((el) => {
