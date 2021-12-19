@@ -562,29 +562,34 @@ class EthereumToggle extends HTMLElement {
   constructor() {
     super();
     this.addEventListener('click', this.onToggle);
-    this.addEventListener('mouseenter', this.setEthPrice);
+    this.addEventListener('mouseenter', this.setTimeAgoText);
 
-    this.currentTimestamp = Math.floor(new Date().getTime()/1000);
-    this.ethTimestamp = localStorage.getItem('ethusd_timestamp');
+    this.ethTimestamp = parseInt(localStorage.getItem('ethusd_timestamp'));
     this.ethPrice = parseInt(localStorage.getItem('ethusd'));
     this.useEth = localStorage.getItem('useEth') === 'true';
 
+    this.setCurrentTimestamp();
     if (!this.ethTimestamp || this.currentTimestamp >= this.ethTimestamp) {
       this.getEthPrice();
     }
 
-    this.setEthPrice();
+    this.setTimeAgoText();
     this.setText();
   }
 
-  setText() {
-    this.innerHTML = this.useEth ? 'ETH / USD' : 'USD / ETH';
-    document.querySelectorAll('.eth-only').forEach((el) => {
-      el.style.display = this.useEth ? '' : 'none';
-    });
+  setCurrentTimestamp() {
+    this.currentTimestamp = Math.floor(new Date().getTime()/1000);
+  }
 
+  setText() {
     if (this.ethPrice) {
-      document.querySelectorAll('.price-item, .cart-item__details > .product-option, .cart-item .price, .cart__footer .totals__subtotal-value, .order-summary .summary__emphasis').forEach((el) => {
+        document.querySelectorAll('ethereum-toggle').forEach((el) => {
+          el.innerHTML = this.useEth ? 'ETH / USD' : 'USD / ETH';
+        });
+        document.querySelectorAll('.eth-only').forEach((el) => {
+          el.style.display = this.useEth ? '' : 'none';
+        });    
+        document.querySelectorAll('.price-item, .cart-item__details > .product-option, .cart-item .price, .cart__footer .totals__subtotal-value, .order-summary .summary__emphasis').forEach((el) => {
         if (!el.innerHTML) return;
         if (!el.dataset.usd) {
           el.dataset.usd = el.innerHTML.replace(/\$|\ USD|\,/gi,'');
@@ -599,20 +604,26 @@ class EthereumToggle extends HTMLElement {
 
   getEthPrice() {
     fetch('//api.etherscan.io/api?module=stats&action=ethprice&apikey=QBJGX3IRVMDS3D9P6ZEHMJGMFJ57GWAWEP')
-    .then(response => response.json())
-    .then(data => {
-      const { ethusd, ethusd_timestamp } = data.result;
-      localStorage.setItem('ethusd', ethusd);
-      localStorage.setItem('ethusd_timestamp', parseInt(ethusd_timestamp) + 3600);
-      this.ethPrice = ethusd;
-      this.setEthPrice();
-    });
+      .then(response => response.json())
+      .then(async data => {
+        const { ethusd, ethusd_timestamp } = await data.result;
+        this.ethPrice = ethusd;
+        this.ethTimestamp = parseInt(ethusd_timestamp) + 3600;
+        localStorage.setItem('ethusd', this.ethPrice);
+        localStorage.setItem('ethusd_timestamp', this.ethTimestamp);
+        this.setTimeAgoText();
+        this.setText();
+      });
   }
 
-  setEthPrice() {
+  setTimeAgoText() {
     if (this.ethPrice) {
-      const minutes = Math.floor((this.currentTimestamp - this.ethTimestamp + 3600) / 60);
-      this.dataset.timestamp = `1 ETH = $${this.ethPrice}\nas of ${minutes}m ago`;
+      this.setCurrentTimestamp();
+      const timeAgo = this.currentTimestamp - this.ethTimestamp + 3600;
+      const minutes = Math.floor(timeAgo / 60);
+      const seconds = timeAgo;
+      const timeLabel = (minutes > 0) ? `${minutes}m` : `${seconds}s`;
+      this.dataset.timestamp = `1 ETH = $${this.ethPrice}\nas of ${timeLabel} ago`;
       if (minutes >= 60) {
         this.getEthPrice();
       }
