@@ -1,12 +1,12 @@
-ethereum-toggle {
+ethereum-toggle.header__menu-item {
   position: relative;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   flex-direction: column;
 }
 
-ethereum-toggle[data-timestamp]::before {
+ethereum-toggle.header__menu-item::before {
   white-space: pre;
   content : attr(data-timestamp);
   margin-top: 10rem;
@@ -18,7 +18,7 @@ ethereum-toggle[data-timestamp]::before {
   text-align: center;
 }
 
-ethereum-toggle[data-timestamp]::after {
+ethereum-toggle.header__menu-item::after {
   content: '';
   border-bottom: 1em solid;
   border-left: 1em solid transparent;
@@ -30,8 +30,8 @@ ethereum-toggle[data-timestamp]::after {
   margin-top: 4.75rem;
 }
 
-ethereum-toggle[data-timestamp]::before,
-ethereum-toggle[data-timestamp]::after {
+ethereum-toggle.header__menu-item::before,
+ethereum-toggle.header__menu-item::after {
   position : absolute;
   opacity: 0;
   transform: translateY(-0.5rem);
@@ -40,8 +40,8 @@ ethereum-toggle[data-timestamp]::after {
     transform var(--duration-short) ease;
 }
 
-ethereum-toggle[data-timestamp]:hover::before,
-ethereum-toggle[data-timestamp]:hover::after {
+ethereum-toggle.header__menu-item:hover::before,
+ethereum-toggle.header__menu-item:hover::after {
   opacity: 1;
   transform: translateY(0%) scale(1);
 }
