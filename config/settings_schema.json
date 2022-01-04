@@ -228,6 +228,18 @@
       },
       {
         "type": "text",
+        "id": "social_discord_link",
+        "label": "t:settings_schema.social-media.settings.social_discord_link.label",
+        "info": "t:settings_schema.social-media.settings.social_discord_link.info"
+      },
+      {
+        "type": "text",
+        "id": "social_opensea_link",
+        "label": "t:settings_schema.social-media.settings.social_opensea_link.label",
+        "info": "t:settings_schema.social-media.settings.social_opensea_link.info"
+      },
+      {
+        "type": "text",
         "id": "social_facebook_link",
         "label": "t:settings_schema.social-media.settings.social_facebook_link.label",
         "info": "t:settings_schema.social-media.settings.social_facebook_link.info"
