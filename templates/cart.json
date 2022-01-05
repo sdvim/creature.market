@@ -21,6 +21,7 @@
     "featured-products": {
       "type": "featured-collection",
       "settings": {
+        "title": "Also check out...",
         "collection": "all",
         "image_ratio": "square"
       }
