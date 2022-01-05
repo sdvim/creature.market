@@ -350,7 +350,7 @@
       </h1>
     {%- endif -%}
 
-    {%- if section.settings.menu != blank -%}
+    {% comment %} {%- if section.settings.menu != blank -%}
       <nav class="header__inline-menu">
         <ul class="list-menu list-menu--inline" role="list">
           {%- for link in section.settings.menu.links -%}
@@ -400,10 +400,10 @@
           {%- endfor -%}
         </ul>
       </nav>
-    {%- endif -%}
+    {%- endif -%} {% endcomment %}
 
     <div class="header__icons">
-      <details-modal class="header__search">
+      {% comment %} <details-modal class="header__search">
         <details>
           <summary class="header__icon header__icon--search header__icon--summary link focus-inset modal__toggle" aria-haspopup="dialog" aria-label="{{ 'general.search.search' | t }}">
             <span>
@@ -474,7 +474,7 @@
             </div>
           </div>
         </details>
-      </details-modal>
+      </details-modal> {% endcomment %}
 
       {%- if shop.customer_accounts_enabled -%}
         <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" class="header__icon header__icon--account link focus-inset{% if section.settings.menu != blank %} small-hide{% endif %}">
