@@ -19,12 +19,7 @@
   header-drawer {
     justify-self: start;
     margin-left: -1.2rem;
-  }
-
-  @media screen and (min-width: 990px) {
-    header-drawer {
-      display: none;
-    }
+    display: none;
   }
 
   .menu-drawer-container {
@@ -256,7 +251,11 @@
       </header-drawer>
     {%- endif -%}
 
-    {%- if section.settings.logo_position == 'top-center' or section.settings.menu == blank -%}
+    <div>
+      <ethereum-toggle class="focus-inset"></ethereum-toggle>
+    </div>
+
+    {% comment %} {%- if section.settings.logo_position == 'top-center' or section.settings.menu == blank -%}
       <details-modal class="header__search">
         <details>
           <summary class="header__icon header__icon--search header__icon--summary link focus-inset modal__toggle" aria-haspopup="dialog" aria-label="{{ 'general.search.search' | t }}">
@@ -329,11 +328,10 @@
           </div>
         </details>
       </details-modal>
-    {%- endif -%}
+    {%- endif -%} {% endcomment %}
 
-    {%- if request.page_type == 'index' -%}
+    {%- if request.page_type != 'index' -%}
       <h1 class="header__heading">
-    {%- endif -%}
         <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset">
           {%- if section.settings.logo != blank -%}
             {%- assign image_size = section.settings.logo_width | append: 'x' -%}
@@ -349,7 +347,6 @@
             <span class="h2">{{ shop.name }}</span>
           {%- endif -%}
         </a>
-    {%- if request.page_type == 'index' -%}
       </h1>
     {%- endif -%}
 
@@ -401,10 +398,6 @@
               {%- endif -%}
             </li>
           {%- endfor -%}
-          <li>
-            <ethereum-toggle class="header__menu-item header__menu-item list-menu__item link link--text focus-inset">
-            </ethereum-toggle>
-          </li>
         </ul>
       </nav>
     {%- endif -%}
