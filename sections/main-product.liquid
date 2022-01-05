@@ -362,6 +362,10 @@
             {%- endif -%}
           {%- endcase -%}
         {%- endfor -%}
+
+        {% if product.tags contains 'in-production' %}
+          Note: Due to global supply chain shortages, these pieces will take 2-3 more weeks than anything else to ship out.
+        {% endif %}
       </div>
     </div>
   </div>
