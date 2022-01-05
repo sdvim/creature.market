@@ -131,10 +131,24 @@
 
     {% section 'announcement-bar' %}
     {% section 'header' %}
+
+    <h1 class="site-logo">
+      <a href="/">Creature World</a>
+      <a href="https://www.advisry.com/" target="_blank">
+        <img src="{{ 'advisry.png' | asset_url }}" width="300" height="auto" alt="adivsry" loading="lazy" />
+      </a>
+    </h1>
+
     <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
       {{ content_for_layout }}
     </main>
 
+    <nav class="nav-buttons page-width">
+      <a class="btn" href="/pages/">Contact</a>
+      <a class="btn btn--filled" href="/pages/lookbook">Lookbook</a>
+      <a class="btn" href="/pages/about">About</a>
+    </nav>
+    
     {% section 'footer' %}
 
     <ul hidden>
