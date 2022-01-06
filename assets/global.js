@@ -582,12 +582,13 @@ class EthereumToggle extends HTMLElement {
   }
 
   setText() {
+    const useEth = localStorage.getItem('useEth') === 'true';
     if (this.ethPrice) {
         document.querySelectorAll('ethereum-toggle').forEach((el) => {
-          el.innerHTML = this.useEth ? 'ETH / USD' : 'USD / ETH';
+          el.innerHTML = useEth ? 'ETH / USD' : 'USD / ETH';
         });
         document.querySelectorAll('.eth-only').forEach((el) => {
-          el.style.display = this.useEth ? '' : 'none';
+          el.style.display = useEth ? '' : 'none';
         });    
         document.querySelectorAll('.price-item, .cart-item__details > .product-option, .cart-item .price, .cart__footer .totals__subtotal-value, .order-summary .summary__emphasis').forEach((el) => {
         if (!el.innerHTML) return;
@@ -595,9 +596,9 @@ class EthereumToggle extends HTMLElement {
           el.dataset.usd = el.innerHTML.replace(/\$|\ USD|\,/gi,'');
         }
         if (!el.dataset.eth) {
-          el.dataset.eth = (parseFloat(el.dataset.usd) / this.ethPrice).toPrecision(2);
+          el.dataset.eth = (parseFloat(el.dataset.usd) / this.ethPrice).toPrecision(4);
         }
-        el.innerHTML = this.useEth ? `${el.dataset.eth} ETH` : `$${el.dataset.usd.trim()} USD`;
+        el.innerHTML = useEth ? `${el.dataset.eth} ETH` : `$${el.dataset.usd.trim()} USD`;
       });
     }
   }
