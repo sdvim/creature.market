@@ -255,8 +255,8 @@
       <ethereum-toggle class="focus-inset"></ethereum-toggle>
     </div>
 
-    {% comment %} {%- if section.settings.logo_position == 'top-center' or section.settings.menu == blank -%}
-      <details-modal class="header__search">
+    {%- if section.settings.logo_position == 'top-center' or section.settings.menu == blank -%}
+      <details-modal class="header__search" style="display: none">
         <details>
           <summary class="header__icon header__icon--search header__icon--summary link focus-inset modal__toggle" aria-haspopup="dialog" aria-label="{{ 'general.search.search' | t }}">
             <span>
@@ -328,7 +328,7 @@
           </div>
         </details>
       </details-modal>
-    {%- endif -%} {% endcomment %}
+    {%- endif -%}
 
     {% comment %} {%- if request.page_type != 'index' -%}
       <h1 class="header__heading">
@@ -403,7 +403,7 @@
     {%- endif -%} {% endcomment %}
 
     <div class="header__icons">
-      {% comment %} <details-modal class="header__search">
+      <details-modal class="header__search" style="display: none">
         <details>
           <summary class="header__icon header__icon--search header__icon--summary link focus-inset modal__toggle" aria-haspopup="dialog" aria-label="{{ 'general.search.search' | t }}">
             <span>
@@ -474,7 +474,7 @@
             </div>
           </div>
         </details>
-      </details-modal> {% endcomment %}
+      </details-modal>
 
       {%- if shop.customer_accounts_enabled -%}
         <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" class="header__icon header__icon--account link focus-inset{% if section.settings.menu != blank %} small-hide{% endif %}">
