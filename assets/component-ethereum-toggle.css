@@ -1,7 +1,7 @@
 ethereum-toggle {
   position: relative;
   display: inline-flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: column;
   cursor: pointer;
@@ -10,7 +10,7 @@ ethereum-toggle {
 ethereum-toggle::before {
   white-space: pre;
   content : attr(data-timestamp);
-  margin-top: 12rem;
+  top: 4rem;
   display: inline-block;
   background: rgb(var(--color-foreground));
   padding: 0.5rem 1rem;
@@ -28,7 +28,7 @@ ethereum-toggle::after {
   font-size: 8px;
   width: 0;
   height: 0;
-  margin-top: 5rem;
+  top: calc(4rem - 8px);
 }
 
 ethereum-toggle::before,
@@ -45,10 +45,4 @@ ethereum-toggle:hover::before,
 ethereum-toggle:hover::after {
   opacity: 1;
   transform: translateY(0%) scale(1);
-}
-
-@media screen and (min-width: 990px) {
-  ethereum-toggle::after {
-    margin-top: 4.5rem;
-  }
 }
