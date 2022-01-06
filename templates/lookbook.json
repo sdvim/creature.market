@@ -1,0 +1,18 @@
+{
+  "sections": {
+    "main": {
+      "type": "image-banner"
+    }
+  },
+  "order": [
+    "image-banner",
+    "image-banner",
+    "image-banner",
+    "image-banner",
+    "image-banner",
+    "image-banner",
+    "image-banner",
+    "image-banner",
+    "image-banner"
+  ]
+}
