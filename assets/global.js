@@ -603,12 +603,12 @@ class EthereumToggle extends HTMLElement {
   }
 
   getEthPrice() {
-    fetch('//api.etherscan.io/api?module=stats&action=ethprice&apikey=QBJGX3IRVMDS3D9P6ZEHMJGMFJ57GWAWEP')
+    fetch('//api.coinbase.com/v2/prices/ETH-USD/spot')
       .then(response => response.json())
       .then(async data => {
-        const { ethusd, ethusd_timestamp } = await data.result;
-        this.ethPrice = ethusd;
-        this.ethTimestamp = parseInt(ethusd_timestamp) + 3600;
+        const { amount } = await data.data;
+        this.ethPrice = amount;
+        this.ethTimestamp = Math.floor(new Date().getTime()/1000) + 3600;
         localStorage.setItem('ethusd', this.ethPrice);
         localStorage.setItem('ethusd_timestamp', this.ethTimestamp);
         this.setTimeAgoText();
