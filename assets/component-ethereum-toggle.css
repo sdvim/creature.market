@@ -28,7 +28,7 @@ ethereum-toggle::after {
   font-size: 8px;
   width: 0;
   height: 0;
-  margin-top: 4.5rem;
+  margin-top: 5rem;
 }
 
 ethereum-toggle::before,
@@ -45,4 +45,10 @@ ethereum-toggle:hover::before,
 ethereum-toggle:hover::after {
   opacity: 1;
   transform: translateY(0%) scale(1);
+}
+
+@media screen and (min-width: 990px) {
+  ethereum-toggle::after {
+    margin-top: 4.5rem;
+  }
 }
