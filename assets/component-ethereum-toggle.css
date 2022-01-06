@@ -10,7 +10,7 @@ ethereum-toggle {
 ethereum-toggle::before {
   white-space: pre;
   content : attr(data-timestamp);
-  margin-top: 10rem;
+  margin-top: 12rem;
   display: inline-block;
   background: rgb(var(--color-foreground));
   padding: 0.5rem 1rem;
@@ -28,7 +28,7 @@ ethereum-toggle::after {
   font-size: 8px;
   width: 0;
   height: 0;
-  margin-top: 4.75rem;
+  margin-top: 4.5rem;
 }
 
 ethereum-toggle::before,
