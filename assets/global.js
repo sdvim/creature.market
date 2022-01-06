@@ -753,6 +753,9 @@ class VariantSelects extends HTMLElement {
 
         const price = document.getElementById(`price-${this.dataset.section}`);
 
+        const ethereumToggle = document.querySelector('ethereum-toggle');
+        if (ethereumToggle) ethereumToggle.setText();
+
         if (price) price.classList.remove('visibility-hidden');
         this.toggleAddButton(!this.currentVariant.available, window.variantStrings.soldOut);
       });
