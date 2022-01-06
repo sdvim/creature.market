@@ -133,8 +133,8 @@
     {% section 'header' %}
 
     <h1 class="site-logo">
-      <a href="/">Creature World</a>
-      <a href="https://www.advisry.com/" target="_blank">
+      <a href="/">
+        <span>Creature World</span>
         <img src="{{ 'advisry.png' | asset_url }}" width="300" height="auto" alt="adivsry" loading="lazy" />
       </a>
     </h1>
@@ -149,7 +149,7 @@
       <a class="btn" href="/pages/about">About</a>
     </nav>
     
-    {% section 'footer' %}
+    {% comment %} {% section 'footer' %} {% endcomment %}
 
     <ul hidden>
       <li id="a11y-refresh-page-message">{{ 'accessibility.refresh_page' | t }}</li>

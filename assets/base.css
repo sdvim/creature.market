@@ -2344,8 +2344,10 @@ details-disclosure > details {
 }
 
 .site-logo img {
+  display: block;
   width: auto;
   height: 3.5rem;
+  margin: 0 auto;
 }
 
 .nav-buttons {
