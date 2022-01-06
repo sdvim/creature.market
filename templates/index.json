@@ -3,9 +3,17 @@
     "featured_products": {
       "type": "featured-collection",
       "settings": {
-        "title": " ",
-        "collection": "all",
-        "image_ratio": "square"
+        "title": "",
+        "collection": "frontpage",
+        "products_to_show": 20,
+        "show_view_all": true,
+        "swipe_on_mobile": false,
+        "image_ratio": "square",
+        "show_secondary_image": false,
+        "add_image_padding": false,
+        "show_image_outline": false,
+        "show_vendor": false,
+        "show_rating": false
       }
     }
   },
