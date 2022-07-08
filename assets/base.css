@@ -2332,8 +2332,8 @@ details-disclosure > details {
 
 .site-logo {
   text-align: center;
-  margin-top: 0;
-  margin-bottom: 1rem;
+  margin-top: 3rem;
+  margin-bottom: -4rem;
 }
 
 .site-logo a {
@@ -2345,9 +2345,17 @@ details-disclosure > details {
 
 .site-logo img {
   display: block;
-  width: auto;
-  height: 3.5rem;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.site-logo__primary {
+  width: 75%;
+}
+
+.site-logo__secondary {
+  width: 37.5%;
+  margin-top: 1rem;
 }
 
 .nav-buttons {
@@ -2389,14 +2397,10 @@ details-disclosure > details {
   }
 
   .site-logo {
-    margin-bottom: 0;
+    margin-bottom: 0rem;
   }
 
   .site-logo a {
     font-size: 7rem;
-  }
-  
-  .site-logo img {
-    height: 6.5rem;
   }
 }
