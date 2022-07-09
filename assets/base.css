@@ -2400,6 +2400,11 @@ details-disclosure > details {
   height: 3rem;
 }
 
+.header__icon__shopping-cart {
+  width: auto;
+  height: 3rem;
+}
+
 @media screen and (min-width: 990px) {
   .nav-buttons {
     flex-direction: row;
