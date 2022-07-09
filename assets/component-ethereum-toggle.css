@@ -8,6 +8,7 @@ ethereum-toggle {
   background: url('usd-slash-eth.png') no-repeat center;
   background-size: contain;
   color: transparent;
+  font-size: 2rem;
 }
 
 ethereum-toggle.is-using-eth {
