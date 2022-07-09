@@ -2333,7 +2333,7 @@ details-disclosure > details {
 .site-logo {
   text-align: center;
   margin-top: 3rem;
-  margin-bottom: 0;
+  margin-bottom: 3rem;
 }
 
 .site-logo a {
@@ -2419,6 +2419,10 @@ details-disclosure > details {
     width: 25%;
     margin-top: 0;
     font-size: 4rem;
+  }
+
+  .site-logo {
+    margin-bottom: 0rem;
   }
 
   .site-logo a {
