@@ -958,6 +958,9 @@
           "options__3": {
             "label": "Large"
           },
+          "options__4": {
+            "label": "Square"
+          },
           "label": "Image ratio"
         },
         "color_scheme": {
