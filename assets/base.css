@@ -2350,7 +2350,7 @@ details-disclosure > details {
 }
 
 .site-logo__primary {
-  width: 75%;
+  width: 85%;
 }
 
 .site-logo__secondary {
@@ -2428,7 +2428,11 @@ details-disclosure > details {
   .site-logo a {
     font-size: 7rem;
   }
-  
+
+  .site-logo__primary {
+    width: 75%;
+  }
+    
   .nav-buttons .year {
     order: unset;
     margin-top: unset;
