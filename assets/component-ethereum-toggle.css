@@ -5,6 +5,13 @@ ethereum-toggle {
   align-items: center;
   flex-direction: column;
   cursor: pointer;
+  background: url('usd-slash-eth.png') no-repeat center;
+  background-size: contain;
+  color: transparent;
+}
+
+ethereum-toggle.is-using-eth {
+  background-image: url('eth-slash-usd.png');
 }
 
 ethereum-toggle::before {
@@ -17,6 +24,7 @@ ethereum-toggle::before {
   border-radius: 0.5rem;
   color: rgb(var(--color-base-background-2));
   text-align: center;
+  font-size: 1.25rem;
 }
 
 ethereum-toggle::after {
@@ -29,6 +37,7 @@ ethereum-toggle::after {
   width: 0;
   height: 0;
   top: calc(4rem - 8px);
+  font-size: 1.25rem;
 }
 
 ethereum-toggle::before,
