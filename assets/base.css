@@ -2405,15 +2405,12 @@ details-disclosure > details {
   height: 3rem;
 }
 
-.hotfix-mt-negative-3-mobile {
-  margin-top: -3rem;
+.title-wrapper-with-link--no-heading,
+.title--no-heading {
+  display: none;
 }
 
 @media screen and (min-width: 990px) {
-  .hotfix-mt-negative-3-mobile {
-    margin-top: 6rem;
-  }
-
   .nav-buttons {
     flex-direction: row;
   }
