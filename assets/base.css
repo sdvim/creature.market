@@ -2410,7 +2410,15 @@ details-disclosure > details {
   display: none;
 }
 
+.hotfix-top-margin {
+  margin-top: -1rem;
+}
+
 @media screen and (min-width: 990px) {
+  .hotfix-top-margin {
+    margin-top: 5rem;
+  }
+
   .nav-buttons {
     flex-direction: row;
   }
