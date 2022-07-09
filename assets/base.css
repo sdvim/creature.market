@@ -2362,11 +2362,15 @@ details-disclosure > details {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
   margin-bottom: 4rem;
 }
 
 .nav-buttons .btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-decoration: none;
   color: rgb(var(--color-foreground));
   font-weight: bold;
@@ -2376,6 +2380,7 @@ details-disclosure > details {
   text-align: center;
   margin-top: 2rem;
   font-size: 3rem;
+  padding: 2rem 1rem;
 }
 
 .nav-buttons .btn--filled {
@@ -2383,6 +2388,16 @@ details-disclosure > details {
   border-color: rgb(var(--color-foreground));
   color: rgb(var(--color-background));
   box-shadow: 0 0 0 4px inset rgb(var(--color-background));;
+}
+
+.nav-buttons .btn img {
+  display: block;
+}
+
+.nav-buttons .year {
+  order: 1;
+  margin-top: 2rem;
+  height: 3rem;
 }
 
 @media screen and (min-width: 990px) {
@@ -2402,5 +2417,11 @@ details-disclosure > details {
 
   .site-logo a {
     font-size: 7rem;
+  }
+  
+  .nav-buttons .year {
+    order: unset;
+    margin-top: unset;
+    height: 5rem;
   }
 }

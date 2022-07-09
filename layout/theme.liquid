@@ -138,8 +138,13 @@
     </main>
 
     <nav class="nav-buttons page-width">
-      <a class="btn" href="https://creature.support/" target="_blank">Contact</a>
-      <a class="btn" href="/pages/about">About</a>
+      <a class="btn" href="https://creature.support/" target="_blank">
+        <img src="{{ 'contact.png' | asset_url }}" width="auto" height="40" alt="Contact" loading="lazy" />
+      </a>
+      <img class="year" src="{{ '2022.png' | asset_url }}" width="auto" height="60" alt="2022" loading="lazy" />
+      <a class="btn" href="/pages/about">
+        <img src="{{ 'about.png' | asset_url }}" width="auto" height="40" alt="About" loading="lazy" />
+      </a>
     </nav>
     
     {% comment %} {% section 'footer' %} {% endcomment %}
