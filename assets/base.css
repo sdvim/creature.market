@@ -945,7 +945,7 @@ summary::-webkit-details-marker {
   padding-bottom: 0.5rem;
   width: calc(25% - 0.5rem * 3 / 4);
   max-width: 50%;
-  flex-grow: 1;
+  /* TODO: see if this is really necessary flex-grow: 1; */
   flex-shrink: 0;
 }
 
