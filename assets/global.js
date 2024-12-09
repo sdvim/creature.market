@@ -609,7 +609,7 @@ class EthereumToggle extends HTMLElement {
       .then(response => response.json())
       .then(async data => {
         const { amount } = await data.data;
-        this.ethPrice = amount;
+        this.ethPrice = ethusd?.toFixed(2) ?? "???";
         this.ethTimestamp = Math.floor(new Date().getTime()/1000) + 3600;
         localStorage.setItem('ethusd', this.ethPrice);
         localStorage.setItem('ethusd_timestamp', this.ethTimestamp);
